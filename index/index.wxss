@@ -1,4 +1,30 @@
-.intro {
-  margin: 30px;
-  text-align: center;
+.edit_imagebox{
+  width: 155rpx;
+  height: 80rpx;
+  border:5rpx solid rgb(172, 172, 245);
+  display: flex;
+  justify-content: center;
+}
+.closeImv {
+  position: absolute;
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 90rpx
+}
+.chooseImvadd {
+  position: absolute;
+  width: 80rpx;
+  height:80rpx;
+}
+.box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200rpx;
+}
+.edit_image{
+  width: 150rpx;
+  height: 75rpx;
+  border-radius: 5rpx;
+  z-index: 6;
 }

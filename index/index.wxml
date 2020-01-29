@@ -1,1 +1,8 @@
-<view class="intro">欢迎使用代码片段，可在控制台查看代码片段的说明和文档</view>
+<view class="box"><view class="edit_imagebox" bindtap="changeimage">
+<image class="chooseImvadd" src="../images/add.png" mode="scaleToFill"></image>
+<!-- +'?v=2020'强制刷新七牛云端数据防止删除链接还可用也可以接当前时间截 -->
+<image src="{{ url+'?v=2020' }}" class="edit_image" mode='aspectFill' />
+<image class="closeImv" src="../images/clear.png" mode="scaleToFill" catchtap="dele"></image>
+</view></view>
+
+<view class="box">在js输入你的ak//sk/btk空间名//cdn测试域名</view>

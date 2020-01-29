@@ -1,0 +1,56 @@
+/* pages/post/index.wxss */
+.slide-image{  
+    width: 100%;  
+}
+.edit_image{
+  width: 150rpx;
+  height: 75rpx;
+  border-radius: 5rpx;
+}
+.item{
+  display: flex;
+  height: 75rpx;
+  text-align: 36rpx;
+  font-size: 26rpx;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.switch{
+  margin-left: 10rpx;
+  zoom:.6;
+}
+.swt{
+  margin-left: 20rpx;
+}
+.editimage{
+  margin-top: 110rpx;
+}
+.edit_imagebox{
+  width: 155rpx;
+  height: 80rpx;
+  border:5rpx solid rgb(172, 172, 245);
+  display: flex;
+  justify-content: center;
+}
+.submit{
+  position: fixed;
+  bottom: 0;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: 250rpx;
+  margin-left: 300rpx
+}
+.butt{
+  font-size: 26rpx;
+}
+.closeImv {
+  position: absolute;
+  width: 20rpx;
+  height: 20rpx;
+  margin-left: 90rpx
+}

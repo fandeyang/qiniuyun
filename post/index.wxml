@@ -1,0 +1,22 @@
+<!--pages/post/index.wxml-->
+<swiper style="height:200px;" indicator-dots="{{indicatorDots}}"  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">  
+      <!--广告banner-->
+      <block wx:for="{{ adv }}" wx:key="item">  
+        <swiper-item>  
+            <image src="{{ item.url+'?v=2020' }}"  class="slide-image" mode='aspectFill' />  
+        </swiper-item>  
+      </block>  
+</swiper>
+<text style="font-size: 26rpx;display: flex;justify-content: center;margin-top: 20rpx;" >建议图片为手机的横版图750x390</text>
+<view class="editimage">
+<block wx:for="{{ adv }}" wx:key="item"> 
+<view class="item">
+<view class="edit_imagebox"><image src="{{ item.url }}" class="edit_image" mode='aspectFill' />
+<image class="closeImv" src="../../images/clear.png" mode="scaleToFill" catchtap="changeimage" data-index="{{index}}"></image>
+</view>
+<view class="swt">显示<switch class="switch" checked="{{item.is_show==1}}" data-index="{{index}}" bindchange="switchChange"/></view>
+ <navigator url="/pages/change/index?posttap={{1==1}}&copyindex={{index}}"><button class="butt">跳转商品号：{{item.good_id}}</button></navigator>
+</view>
+</block> 
+</view>
+<button type="primary" class="submit" bindtap="submit">保存</button>
