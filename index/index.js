@@ -21,7 +21,6 @@ Page({
     tokendata.sk = '你的'
     tokendata.bkt = '你的空间名'
     tokendata.cdn = '你的测试cdn'
-
     this.data.tokendata = tokendata
     var uptoken = token.token(tokendata)  
 this.setData({
