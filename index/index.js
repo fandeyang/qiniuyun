@@ -4,28 +4,30 @@ const qiniuUploader = require("../utils/qiniu/qiniuUploader.js");
 const qiniudelete = require('../utils/qiniu/qianniudelete.js')
 Page({
   data: {
-url:'',
-    tokendata: {ak:'',sk:'',btk:'',cdn:''},//建议云函数获取处理、、测试时可直接写
+    url:'http://q3hsi9s02.bkt.clouddn.com/tmp/touristappid.o6zAJs9PGSG4t0J-RnpDxkuKxbWw.8xVI1cVSSOmD9a7323c4f2e3b204e02d6aede131281a.png',
+    tokendata: [],//建议云函数获取处理、、测试时可直接写
     uptoken: '',//上传凭证
+    time: Date.parse(new Date()) //时间截
   },
   onLoad: function () {
     //this.query_qiniudata()////获取云端tokendata
+    
   },
 
 //测试获取token按钮
   testgettoken(){
     var tokendata=[]
-    tokendata.ak='你的ak'
-    tokendata.sk = '你的sk'
-    tokendata.btk = '你的btk'
-    tokendata.cdn = '你的cdn'
+    tokendata.ak ='你的ak'
+    tokendata.sk = '你的'
+    tokendata.bkt = '你的空间名'
+    tokendata.cdn = '你的测试cdn'
 
     this.data.tokendata = tokendata
     var uptoken = token.token(tokendata)  
 this.setData({
   uptoken: uptoken
 })
-    console.log('uptoken', uptoken)
+    console.log('uptoken', uptoken,this.data.tokendata)
   },
 
 //测试删除按钮
@@ -35,6 +37,10 @@ dele(){
   console.log('sendtokendata')
 
   qiniudelete.delet(sendtokendata)//调用删除
+  this.setData({
+    url: this.data.url,
+    time: Date.parse(new Date())
+  })
 },
 
 //测试批量删除
@@ -62,7 +68,7 @@ batchdele(){
 
 
 //上传图片
-  async upload(e) {
+   upload(e) {
    // await this.gettoken()//获取token需要用到 不用await记得吧async取消
     
     console.log(e)//传入的地址
@@ -73,11 +79,11 @@ batchdele(){
     qiniuUploader.upload(
       e, //上传的图片
       (res) => {  //回调 success
-        console.log(res, that.data.imageupindex);
         let url = 'http://' + res.imageURL;
         that.setData({
-          url: that.data.url,
+          url: url,
         })
+        console.log(res,url);
       },
       (error) => { //回调 fail
         console.log('error: ' + error);
@@ -181,7 +187,12 @@ batchdele(){
   //更换图片
    changeimage(e) {
     let that = this
-    
+     if (this.data.uptoken==''){
+      wx.showToast({
+        title: '先获取token',
+      })
+      return
+    }
     var sendtokendata = this.data.tokendata
     sendtokendata.filename = that.data.url;//删除用
     console.log('sendtokendata')
