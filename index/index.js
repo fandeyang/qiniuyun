@@ -63,7 +63,7 @@ batchdele(){
 
 //上传图片
   async upload(e) {
-   // await this.gettoken()//获取token需要用到
+   // await this.gettoken()//获取token需要用到 不用await记得吧async取消
     
     console.log(e)//传入的地址
     wx.showLoading({
